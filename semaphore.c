@@ -37,7 +37,7 @@ int main(int argc, char const *argv[]) {
   pthread_t thread[NUM_THREADS];
   int rc;
 
-  sem_init(&semaphore, 0, 0);
+  sem_init(&semaphore, 0, 1);
 
   for (int i = 0; i<NUM_THREADS; i++) {
     int *arg = malloc(sizeof(*arg));
