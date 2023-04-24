@@ -53,6 +53,15 @@ int main(){
 
   printf("message received!\n%s\n", msg.mtext);
 
+  int delete = msgctl(msqid, IPC_RMID, NULL);
+
+  if(delete == -1) {
+    perror("Error deleting queue");
+    exit(-1);
+
+  }
+
+  printf("queue deleted successfully\n");
   return 0;
 
 }
