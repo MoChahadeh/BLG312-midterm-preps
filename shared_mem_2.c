@@ -18,7 +18,7 @@ int main() {
 
   key = ftok(".", 1);
 
-  shmid = shmget(key, SHM_SIZE, IPC_CREAT | 0666);
+  shmid = shmget(key, SHM_SIZE, 0666);
 
   if(shmid < 0) {
     perror("shmget error");
@@ -27,25 +27,9 @@ int main() {
 
   shm = shmat(shmid, NULL, 0);
 
-  if(shm == (char *) -1) {
-    perror("shmat error");
-    exit(-1);
-  }
+  printf("the data in memory: %s\n", shm);
 
-  s = shm;
-  for(char c = 'a'; c <= 'z'; c++) {
-
-    *s++ = c;
-
-  }
-
-  *s++ = '\0';
-
-
-  printf("Data read from shared memory: %s\n", shm);
-
-  if(shmdt(shm) == -1) {
-
+  if(shmdt(shm) < 0){
     perror("shmdt error");
     exit(-1);
   }
