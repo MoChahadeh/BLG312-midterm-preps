@@ -46,10 +46,10 @@ int main(int argc, char const *argv[]) {
 
   }
 
-  for(int i = 0; i<5; i++) {
-    fflush(stdout);
-    sleep(1);
-  }
+  // for(int i = 0; i<5; i++) {
+  //   fflush(stdout);
+  //   sleep(1);
+  // }
 
   printf("Global int: %d\n", global_int);
   printf("Main completed\n");

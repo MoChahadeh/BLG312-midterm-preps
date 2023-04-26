@@ -54,7 +54,7 @@ int main(int argc, char const *argv[]) {
       exit(-1);
     }
 
-    sleep(1);
+    //sleep(1);
 
   }
 
